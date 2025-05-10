@@ -43,7 +43,7 @@ cd ecommerce-store
 ---
 ## 🖥 Backend
 
-Setup
+### Setup
 
 ```bash
 cd backend
@@ -52,13 +52,19 @@ npm install
 npm run start
 # or use another port if 3000 is busy
 PORT=4000 npm run start
+```
+### Test
+
+```bash
+
+npm test
 
 ```
 
 ---
 ## 🧑‍🎨 Frontend
 
-Setup
+### Setup
 
 ```bash
 cd frontend
@@ -68,5 +74,32 @@ npm install
 npm run start
 #By default, it runs on port 3000. Ensure backend is running on a different port, e.g. 4000.
 ```
+
+---
+
+## 📸 Screenshots
+
+### Few snap of Produt funtionality 
+Landing page
+
+![image](https://github.com/user-attachments/assets/fab2a3ae-6708-487a-b0b9-71510626a2a8)
+
+
+Add product and try to apply invalid code (negative case)
+
+![image](https://github.com/user-attachments/assets/6357e788-c6f8-4263-9196-b993e59af21c)
+
+Discount code generated on 5th order., and that can be utilized in future order
+
+![image](https://github.com/user-attachments/assets/3330e51e-ab36-4352-b9d4-b7b78f1bb404)
+
+Applying discount code in future order
+
+![image](https://github.com/user-attachments/assets/2d19109a-f0ec-42f0-9413-a9c174b82468)
+
+---
+### Snap of test result
+
+![image](https://github.com/user-attachments/assets/71263c0a-e6bb-4231-8b02-1b2ab83dbdaa)
 
 ---
