@@ -1,4 +1,4 @@
-// backend/index.js
+
 const express = require('express');
 const cors = require('cors');
 const cartRoutes = require('./routes/cart');
@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Seed a demo user
+
 store.users['demo'] = { cart: [], orders: [], discountCodes: [] };
 
 app.use('/cart', cartRoutes);

@@ -1,10 +1,8 @@
-// backend/routes/cart.js
+
 const express = require('express');
 const store = require('../store');
 const router = express.Router();
 
-// Add item to cart
-// POST /cart/:userId/add
 router.post('/:userId/add', (req, res) => {
   const { userId } = req.params;
   const { item } = req.body;
@@ -20,8 +18,7 @@ router.post('/:userId/add', (req, res) => {
   res.status(200).json({ message: 'Item added to cart', cart: store.users[userId].cart });
 });
 
-// Checkout
-// POST /cart/:userId/checkout
+
 router.post('/:userId/checkout', (req, res) => {
   const { userId } = req.params;
   const { discountCode } = req.body;
@@ -33,7 +30,6 @@ router.post('/:userId/checkout', (req, res) => {
     return res.status(400).json({ error: 'Cart is empty' });
   }
 
-  // calculate original total
   const originalTotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
   let totalAmount = originalTotal;
   let discountAmount = 0;
@@ -49,7 +45,7 @@ router.post('/:userId/checkout', (req, res) => {
     usedCode = discountCode;
   }
 
-  // record the order
+
   const order = {
     cart: [...cart],
     originalTotal,
@@ -60,7 +56,7 @@ router.post('/:userId/checkout', (req, res) => {
   user.orders.push(order);
   user.cart = [];
 
-  // check if user just hit their nth order → generate next code
+
   let newDiscountCode;
   if (user.orders.length > 0 && user.orders.length % store.nthOrder === 0) {
     newDiscountCode = store.generateDiscountCode();
