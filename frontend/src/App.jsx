@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import OrderSummary from './components/OrderSummary';
 import axios from 'axios';
+import OrderSummary from './components/OrderSummary';
+import axios from 'axios';
 
+function App() {
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [order, setOrder] = useState(null);
@@ -28,11 +32,19 @@ function App() {
     <div className="max-w-md mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">🛒 My Store</h1>
       <ProductList onAdd={handleAdd} />
+    <div className="max-w-md mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">🛒 My Store</h1>
+      <ProductList onAdd={handleAdd} />
       <Cart items={cartItems} />
+      <Checkout items={cartItems} onOrder={handleOrder} />
+      {order && <OrderSummary order={order} />}
       <Checkout items={cartItems} onOrder={handleOrder} />
       {order && <OrderSummary order={order} />}
     </div>
   );
 }
+
+export default App;
+
 
 export default App;
